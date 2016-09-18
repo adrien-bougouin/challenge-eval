@@ -20,14 +20,15 @@ mkdir test
 mkdir test/input
 mkdir test/output
 ```
-Files in the `input` directory represent inputs for one test case `
+Files in the `input` directory represent inputs for one test case
 and files with same name in the `output` directory represent expected results:
 ```
 echo "input1" > test/input/test_case_1
 echo "expectation1" > test/output/test_case_1
 ```
-The same applies to extra tests. Simply put extra tests in `extra_test`
+The same applies to extra tests. Put extra tests in `extra_test`
 directory instead of `test` directory.
 
 ### Test a program
-Inputs are sent to `run.sh`. Simply execute the program to test inside `run.sh`.
+Inputs are sent to `run.sh`. Write the code to execute the program inside
+`run.sh`.
