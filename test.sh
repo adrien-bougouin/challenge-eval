@@ -58,6 +58,9 @@ color_end="\x01$(tput sgr0)\x02"
 # run tests (will be executed once unless '-l' option as been set) #############
 loop_next=true
 sum_md5=""
+md5_command="md5sum"
+# on Mac OS X, use md5 instead of md5sum
+hash ${md5_command} 2> /dev/null || { md5_command="md5"; }
 while ${loop_next}
 do
   # if '-l' options is set, the test run only if the md5 of the root directory
@@ -67,7 +70,7 @@ do
   then
     # this could slow up things
     # hey! code challenges are just small pieces of code ;)
-    new_sum_md5=`tar -cf - ${root_dir} 2> /dev/null | md5`
+    new_sum_md5=`tar -cf - ${root_dir} 2> /dev/null | ${md5_command}`
   fi
   if [ "${sum_md5}" != "${new_sum_md5}" ]
   then
