@@ -11,7 +11,7 @@ Usage: sh test.sh [-lseh]
        Print this help.
 ```
 
-## Create tests
+## Create Tests
 Add tests in `test` directory:
 ```
 mkdir test
@@ -27,6 +27,47 @@ echo "expectation1" > test/output/test_case_1
 The same applies to extra tests. Put extra tests in `extra_test`
 directory instead of `test` directory.
 
-## Test a program
+## Test a Program
 Inputs are sent to `run.sh`. Write the code to execute the program inside
 `run.sh`.
+
+## Sample Test Output
+```
+================================================================================
+Checking test_case_1...
+  Success!
+Checking test_case_2...
+  Failure!
+    Expected:
+      bar
+    Actual:
+      foo
+    Diff:
+      1c1
+      < bar
+      ---
+      > foo
+-----------------------------------------+--------------------------------------
+                              ==###      | Test Cases: 2
+  ##=                        #######     |    Success: 1
+  ###=                     =###### #     |    Failure: 1
+   #####====########======##### ####     |      Error: 0
+    #####              ######    ###     +--------------------------------------
+    ##        =             ##==###
+    =#==###### #=##==         #####
+   =########   ######====     ####
+   ### # ###   #### #  ###==    ##
+   ####=###==   ###===######     ##
+  =###### #==#   ##########      ##
+  ####   _=###=_    #######       #
+   ###  #       #    #####        #
+   ####=#        #   ####=         #
+   ######=         #######         #
+  =#############                   ##
+  ###########====                   #=
+  ##############                     #=
+  ########==                          #
+ =#######==                            #
+ #############                         #
+```
+
