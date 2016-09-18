@@ -1,5 +1,4 @@
 # Coding Challenge Testing
-## Usage
 ```
 Usage: sh test.sh [-lseh]
     -l
@@ -12,8 +11,7 @@ Usage: sh test.sh [-lseh]
        Print this help.
 ```
 
-## Setup
-### Create tests
+## Create tests
 Add tests in `test` directory:
 ```
 mkdir test
@@ -29,6 +27,6 @@ echo "expectation1" > test/output/test_case_1
 The same applies to extra tests. Put extra tests in `extra_test`
 directory instead of `test` directory.
 
-### Test a program
+## Test a program
 Inputs are sent to `run.sh`. Write the code to execute the program inside
 `run.sh`.
