@@ -3,27 +3,21 @@
 # parse options ################################################################
 loop=false
 check_extra=false
-serious=false
-while getopts ":lseh" opt
+while getopts ":leh" opt
 do
   case $opt in
     l)
       loop=true
       ;;
-    s)
-     serious=true
-      ;;
     e)
      check_extra=true
       ;;
     h)
-      echo "Usage: sh $0 [-lseh]"
+      echo "Usage: sh $0 [-leh]"
       echo "    -l"
       echo "       Run the tests after each change in the root directory."
       echo "    -e"
       echo "       Run extra tests."
-      echo "    -s"
-      echo "       Remove memes."
       echo "    -h"
       echo "       Print this help."
       exit
@@ -142,7 +136,7 @@ do
         result_color=${error_color}
       fi
     fi
-    if [ ${serious} = true ]
+    if [ ${loop} = true ]
     then
       echo "--------------------------------------------------------------------------------"
       echo "${result_color}Test Cases: ${test_count}${color_end}"
@@ -150,28 +144,53 @@ do
       echo "   ${failure_color}Failure: ${failure_count}${color_end}"
       echo "     ${error_color}Error: ${error_count}${color_end}"
     else
-      echo "-----------------------------------------+--------------------------------------"
-      echo "${result_color}                              ==###${color_end}      | ${result_color}Test Cases: ${test_count}${color_end}"
-      echo "${result_color}  ##=                        #######${color_end}     |    ${success_color}Success: ${success_count}${color_end}"
-      echo "${result_color}  ###=                     =###### #${color_end}     |    ${failure_color}Failure: ${failure_count}${color_end}"
-      echo "${result_color}   #####====########======##### ####${color_end}     |      ${error_color}Error: ${error_count}${color_end}"
-      echo "${result_color}    #####              ######    ###${color_end}     +--------------------------------------"
-      echo "${result_color}    ##        =             ##==###${color_end}"
-      echo "${result_color}    =#==###### #=##==         #####${color_end}"
-      echo "${result_color}   =########   ######====     ####${color_end}"
-      echo "${result_color}   ### # ###   #### #  ###==    ##${color_end}"
-      echo "${result_color}   ####=###==   ###===######     ##${color_end}"
-      echo "${result_color}  =###### #==#   ##########      ##${color_end}"
-      echo "${result_color}  ####   _=###=_    #######       #${color_end}"
-      echo "${result_color}   ###  #       #    #####        #${color_end}"
-      echo "${result_color}   ####=#        #   ####=         #${color_end}"
-      echo "${result_color}   ######=         #######         #${color_end}"
-      echo "${result_color}  =#############                   ##${color_end}"
-      echo "${result_color}  ###########====                   #=${color_end}"
-      echo "${result_color}  ##############                     #=${color_end}"
-      echo "${result_color}  ########==                          #${color_end}"
-      echo "${result_color} =#######==                            #${color_end}"
-      echo "${result_color} #############                         #${color_end}"
+      if [ ${success_count} -eq ${test_count} ]
+      then 
+        echo "-------------------------------------------+------------------------------------"
+        echo "${success_color}                                      :X-${color_end}  | ${result_color}Test Cases: ${test_count}${color_end}"
+        echo "${success_color}                                   :X###${color_end}   |    ${success_color}Success: ${success_count}${color_end}"
+        echo "${success_color}                                 ;@####@${color_end}   |    ${failure_color}Failure: ${failure_count}${color_end}"
+        echo "${success_color}                               ;M######X${color_end}   |      ${error_color}Error: ${error_count}${color_end}"
+        echo "${success_color}                             -@########\$${color_end}   +------------------------------------"
+        echo "${success_color}                           .\$##########@${color_end}"
+        echo "${success_color}                          =M############-${color_end}"
+        echo "${success_color}                         +##############\$${color_end}"
+        echo "${success_color}                       .H############\$=.${color_end}"
+        echo "${success_color}          ,/:         ,M##########M;.${color_end}"
+        echo "${success_color}       -+@###;       =##########M;${color_end}"
+        echo "${success_color}    =%M#######;     :#########M/${color_end}"
+        echo "${success_color} -\$M###########;   :########/${color_end}"
+        echo "${success_color}  ,;X###########; =#######\$.${color_end}"
+        echo "${success_color}      ;H#########+######M=${color_end}"
+        echo "${success_color}        ,+#############+${color_end}"
+        echo "${success_color}           /M########@-${color_end}"
+        echo "${success_color}             ;M#####%${color_end}"
+        echo "${success_color}               +####:${color_end}"
+        echo "${success_color}                ,\$M-${color_end}"
+      else
+        echo "-------------------------------------------+------------------------------------"
+        echo "                              ==###        | ${result_color}Test Cases: ${test_count}${color_end}"
+        echo "  ##=                        #######       |    ${success_color}Success: ${success_count}${color_end}"
+        echo "  ###=                     =###### #       |    ${failure_color}Failure: ${failure_count}${color_end}"
+        echo "   #####====########======##### ####       |      ${error_color}Error: ${error_count}${color_end}"
+        echo "    #####              ######    ###       +------------------------------------"
+        echo "    ##        =             ##==###"
+        echo "    =#==###### #=##==         #####"
+        echo "   =########   ######====     ####"
+        echo "   ### # ###   #### #  ###==    ##"
+        echo "   ####=###==   ###===######     ##"
+        echo "  =###### #==#   ##########      ##"
+        echo "  ####   _=###=_    #######       #"
+        echo "   ###  #       #    #####        #"
+        echo "   ####=#        #   ####=         #"
+        echo "   ######=         #######         #"
+        echo "  =#############                   ##"
+        echo "  ###########====                   #="
+        echo "  ##############                     #="
+        echo "  ########==                          #"
+        echo " =#######==                            #"
+        echo " #############                         #"
+      fi
     fi
     ############################################################################
     if [ ${loop} = true ]

@@ -1,12 +1,10 @@
 # Coding Challenge Testing
 ```
-Usage: sh test.sh [-lseh]
+Usage: sh test.sh [-leh]
     -l
        Run the tests after each change in the root directory.
     -e
        Run extra tests.
-    -s
-       Remove memes.
     -h
        Print this help.
 ```
