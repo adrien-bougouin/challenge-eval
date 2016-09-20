@@ -43,11 +43,11 @@ tmp_dir=`mktemp -d`
 
 exit_status=0
 
-success_color="\x01$(tput setaf 2)\x02"
-failure_color="\x01$(tput setaf 3)\x02"
-error_color="\x01$(tput setaf 1)\x02"
-result_color="\x01$(tput setaf 2)\x02"
-color_end="\x01$(tput sgr0)\x02"
+success_color="$(tput setaf 2)"
+failure_color="$(tput setaf 3)"
+error_color="$(tput setaf 1)"
+result_color="$(tput setaf 2)"
+color_end="$(tput sgr0)"
 
 # run tests (will be executed once unless '-l' option as been set) #############
 loop_next=true
