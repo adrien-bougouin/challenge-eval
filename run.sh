@@ -8,5 +8,7 @@ input_filename=$1
 args=`cat ${input_filename}`
 
 # TODO launch your program from here
-cat ${input_filename}
+# example: python my_script.py ${args}
+# example: ruby my_script.rb ${args}
+cat ${input_filename} # TODO remove this line
 
