@@ -26,8 +26,7 @@ The same applies to extra tests. Put extra tests in `extra_test`
 directory instead of `test` directory.
 
 ## Test a Program
-Inputs are sent to `run.sh`. Write the code to execute the program inside
-`run.sh`.
+Inputs are sent to `run.sh`. Edit `run.sh` to add the code to execute the program to test.
 
 ## Sample Test Output
 ```
